@@ -47,6 +47,8 @@ var languageMap = {
   'ru-RU': 'ru-RU',
   'sk': 'sk-SK',
   'sk-SK': 'sk-SK',
+  'tr': 'tr-TR',
+  'tr-TR': 'tr-TR',
   'vi': 'vi-VN',
   'vi-VN': 'vi-VN',
   'zh': 'zh-CN',
@@ -75,6 +77,7 @@ var stringMap = {
   'ro-RO': ['Încercați aplicația noastră gratuită Desktop: rune automate, build-uri și statistici contra adversarilor.', 'Aflați mai multe'],
   'ru-RU': ['Попробуйте нашу БЕСПЛАТНУЮ программу: автоматические руны, билды, контрпики.', 'Узнать больше'],
   'sk-SK': ['Vyskúšaj našu BEZPLATNÚ aplikáciu: automatické runy, sady predmetov a štatistiky.', 'Dozvedieť sa viac'],
+  'tr-TR': ['ÜCRETSİZ Masaüstü Uygulamamızı Deneyin: otomatik rünler, eşya dizilimleri ve karşı takım istatistikleri.', 'Daha fazlası için tıklayın'],
   'vi-VN': ['Thử ngay ứng dụng trên máy tính MIỄN PHÍ của chúng tôi: tự động tìm ngọc, cách lên đồ, và các kèo khắc chế.', 'Tìm hiểu ngay'],
   'zh-CN': ['试试我们的免费桌面App：自动符文，出装，击杀等数据统计。', '获取更多信息'],
   'zh-TW': ['試試我們的免費桌面App：自動符文，出裝，擊殺等資料統計。', '獲取更多資訊']
