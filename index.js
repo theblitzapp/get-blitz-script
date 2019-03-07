@@ -1,3 +1,8 @@
+/*
+  Script to embed a multilingual Blitz banner
+  on champion.gg, lolcounter.com & probuilds.net
+*/
+
 /* Language map */
 var languageMap = {
   'bg': 'bg-BG',
@@ -6,14 +11,14 @@ var languageMap = {
   'cs-CZ': 'cs-CZ',
   'de': 'de-DE',
   'de-AT': 'de-DE',
-  'de-DE': 'de-DE',
   'de-CH': 'de-DE',
-  'en-US': 'en-US',
+  'de-DE': 'de-DE',
   'el': 'el-GR',
   'el-GR': 'el-GR',
+  'en-US': 'en-US',
   'es': 'es-ES',
-  'es-AR': 'es-ES',
   'es-419': 'es-ES',
+  'es-AR': 'es-ES',
   'es-CL': 'es-ES',
   'es-CO': 'es-ES',
   'es-EC': 'es-ES',
@@ -44,9 +49,9 @@ var languageMap = {
   'sk-SK': 'sk-SK',
   'zh': 'zh-CN',
   'zh-CN': 'zh-CN',
+  'zh-HK': 'zh-TW',
   'zh-Hans': 'zh-CN',
   'zh-Hant': 'zh-TW',
-  'zh-HK': 'zh-TW',
   'zh-SG': 'zh-CN',
   'zh-TW': 'zh-TW'
 };
@@ -56,11 +61,11 @@ var stringMap = {
   'bg-BG': ['Пробвайте нашето десктоп приложение: автоматични руни, бюлдове, и каунтър статистики', 'Aflați mai multe'],
   'cs-CZ': ['Vyzkoušej naši BEZPLATNOU aplikaci: automatické runy, sady předmětů a statistiky.', 'Dozvědět se víc'],
   'de-DE': ['Probiere unsere KOSTENLOSE Desktop-App: automatische Runen, Builds und Counter-Statistiken.', 'Erfahre mehr'],
+  'el-GR': ['Δοκιμάστε τη δωρεάν εφαρμογή υπολογιστή:αυτόματοι ρούνοι,αντικείμενα και στατιστικά παιξίματος.', 'Μάθετε περισσότερα.'],
+  'en-US': ['Try Our FREE Desktop App: automatic runes, builds, and counter stats.', 'Learn more'],
   'es-ES': ['Prueba GRATIS nuestra aplicación de escritorio: runas automáticas, builds, y estadísticas de counter.', 'Leer más'],
   'fi-FI': ['Testaa meidän ILMAISTA työpöytäsovellusta: automaattiset runet, buildit ja vastastrategiat.', 'Opi lisää'],
   'fr-FR': ['Essayez notre application GRATUITE: runes automatiques, builds, et stats des counter.', 'En apprendre plus'],
-  'en-US': ['Try Our FREE Desktop App: automatic runes, builds, and counter stats.', 'Learn more'],
-  'el-GR': ['Δοκιμάστε τη δωρεάν εφαρμογή υπολογιστή:αυτόματοι ρούνοι,αντικείμενα και στατιστικά παιξίματος.', 'Μάθετε περισσότερα.'],
   'ko-KR': ['저희의 무료 컴퓨터 앱을 사용해보세요:  자동 룬, 빌즈 그리고 상대 통계.', '더 알아보기'],
   'pl-PL': ['Przetestuj nasza DARMOWA aplikacje na komputer: automatyczne runy, ekwipunek oraz statystyki przeciwnika', 'Dowiedz sie wiecej'],
   'pt-BR': ['Teste GRÁTIS nosso aplicativo para desktop: Runas, Arsenais e informações de counters de forma automática.', 'Saiba mais'],
@@ -86,7 +91,7 @@ function getLanguage() {
   return language;
 }
 
-/* For the map objects defined above, this function will give the right string */
+/* For the map object defined above, this function will give the right string */
 function getStringFromMap(strMap, pos) {
   var language = getLanguage();
   return strMap[language][pos] || strMap[DEFAULT_LANGUAGE][pos];
@@ -101,4 +106,12 @@ function buildBlitzHeader() {
 }
 
 /* Set the blitz header */
-document.getElementById('blitzBanner').innerHTML = buildBlitzHeader();
+void (function (global) {
+  var bannerElement = document.getElementById('blitzBanner');
+  if (!bannerElement) {
+    bannerElement = document.createElement('div');
+    bannerElement.id = 'blitzBanner';
+    document.body.insertBefore(bannerElement, document.body.firstChild);
+  }
+  bannerElement.innerHTML = buildBlitzHeader();
+})(this);
